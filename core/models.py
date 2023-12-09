@@ -10,13 +10,6 @@ class Member(models.Model):
         verbose_name = "member"
         verbose_name_plural = "members"
 
-    def serialize(self):
-        return {
-            "first_name": self.first_name,
-            "last_name": self.last_name,
-            "description": self.description,
-        }
-
     def __str__(self):
         return self.first_name
 
@@ -28,12 +21,6 @@ class TeamProjects(models.Model):
     class Meta:
         verbose_name = "team project"
         verbose_name_plural = "team projects"
-
-    def serialize(self):
-        return {
-            "project_title": self.project_title,
-            "project_description": self.project_description,
-        }
 
     def __str__(self):
         return self.project_title
@@ -47,9 +34,6 @@ class Log(models.Model):
     class Meta:
         verbose_name = "log"
         verbose_name_plural = "logs"
-
-    def serialize(self):
-        return {"title": self.title, "description": self.description, "date": self.date}
 
     def __str__(self):
         return self.title
